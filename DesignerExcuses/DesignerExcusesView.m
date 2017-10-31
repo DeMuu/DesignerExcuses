@@ -48,7 +48,12 @@ NSArray *quoteList = nil;
     newFrame.origin.y = (NSHeight(self.bounds) - height) / 2;
     _label.frame = newFrame;
     
-    [[NSColor windowBackgroundColor] setFill];
+    CGFloat redValue = arc4random_uniform(255) / 255.0;
+    CGFloat greenValue = arc4random_uniform(255) / 255.0;
+    CGFloat blueValue = arc4random_uniform(255) / 255.0;
+    NSColor *color = [NSColor colorWithCalibratedRed:redValue green:greenValue blue:blueValue alpha:1];
+    
+    [color setFill];
     NSRectFill(rect);
 }
 
@@ -178,7 +183,6 @@ NSArray *quoteList = nil;
     _label.autoresizingMask = NSViewWidthSizable;
     _label.alignment = NSCenterTextAlignment;
     
-    //_label.stringValue = @"Loading...";
     _label.textColor = [NSColor blackColor];
     _label.font = [NSFont fontWithName:@"Arial" size:(self.preview ? 12.0 : 24.0)];
     
